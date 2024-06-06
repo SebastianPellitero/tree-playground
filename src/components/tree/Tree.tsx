@@ -1,78 +1,26 @@
-export function Tree(this: { root: INode | null }) {
-    this.root = null;
-    this.insert = insert;
-    this.inOrder = inOrder;
-}
+import { useEffect } from "react";
 
-interface INode {
-    data: Number;
-    count: Number;
-    left: INode | null;
-    right: INode | null;
-    show(): Number;
-}
+import { depthFirstValuesIterative, depthFirstValuesRecursive2 } from "./Algorithms";
+import { TreeNode } from "./TreeNode";
 
-class Node {
-    data: Number;
-    count: Number;
-    left: INode | null;
-    right: INode | null;
-    // show(): Number;
+export const TreeNodeComponent: any = () => {
 
-    Node(data: Number, left: INode | null, right: INode | null) {
-        this.data = data;
-        this.count = 1;
-        this.left = left;
-        this.right = right;
-    }
+    useEffect(() => {
+        const elarbol = new TreeNode(25);
+        elarbol.left = new TreeNode(10);
+        elarbol.right = new TreeNode(40);
+        elarbol.left.left = new TreeNode(5);
+        elarbol.left.right = new TreeNode(15);
+        elarbol.right.left = new TreeNode(30);
+        elarbol.right.right = new TreeNode(45);
 
-    // show = () => {
-    //     return data;
-    // };
-}
+        console.log(depthFirstValuesRecursive2(elarbol));
 
-// function Node(this: INode, data: Number, left: INode | null, right: INode | null) {
-//     this.data = data;
-//     this.count = 1;
-//     this.left = left;
-//     this.right = right;
+    }, []);
 
-//     this.show = () => {
-//         return data;
-//     };
-// }
+    return (
+        <div>
 
-function insert(data: Number) {
-    const n = new Node(data, null, null);
-
-    if (this.root === null) {
-        this.root = n;
-    } else {
-        var current = this.root;
-        var parent;
-        while (true) {
-            parent = current;
-            if (data < current.data) {
-                current = current.left;
-                if (current === null) {
-                    parent.left = n;
-                    break;
-                }
-            } else {
-                current = current.right;
-                if (current === null) {
-                    parent.right = n;
-                    break;
-                }
-            }
-        }
-    }
-}
-
-function inOrder(node) {
-    if (node !== null) {
-        inOrder(node.left);
-        putstr(node.show() + ' ');
-        inOrder(node.right);
-    }
-}
+        </div>
+    )
+};

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { TreeNodeComponent } from '../tree/Tree';
 
 export default function HomePage() {
     const [count, setCount] = useState(0);
@@ -16,6 +17,7 @@ export default function HomePage() {
             <p className='read-the-docs'>
                 Click on the Vite and React logos to learn more
             </p>
+            <TreeNodeComponent />
         </>
     );
 }
