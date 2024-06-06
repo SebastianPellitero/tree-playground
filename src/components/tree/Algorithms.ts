@@ -83,3 +83,24 @@ export const depthSearchValueRecursive = (root: INode | null, val: number): Bool
     const rightValues: Boolean = depthSearchValueRecursive(root.right, val);
     return leftValues || rightValues;
 }
+
+
+export const sumTreeRecursive = (root: INode | null): number => {
+    //O(n)
+    if (root === null) return 0;
+    return root?.data + sumTreeRecursive(root.left) + sumTreeRecursive(root.right);
+}
+
+export const sumTreeIterative = (root: INode | null): number => {
+    if (root === null) return 0;
+    let queue = [root];
+    let sumatory = 0;
+    while (queue.length !== 0) {
+        let varNode = queue.shift();
+        sumatory += varNode!.data;
+
+        if (varNode?.left) queue.push(varNode.left);
+        if (varNode?.right) queue.push(varNode.right);
+    }
+    return sumatory;
+}

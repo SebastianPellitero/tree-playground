@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { breadthFirstValuesIterative, breadthFirstValuesRecursive, breadthSearchValueIterative, depthFirstValuesIterative, depthSearchValueRecursive } from "./Algorithms";
+import { breadthFirstValuesIterative, breadthFirstValuesRecursive, breadthSearchValueIterative, depthFirstValuesIterative, depthSearchValueRecursive, sumTreeIterative, sumTreeRecursive } from "./Algorithms";
 import { TreeNode } from "./TreeNode";
 
 export const TreeNodeComponent: any = () => {
@@ -14,7 +14,7 @@ export const TreeNodeComponent: any = () => {
         elarbol.right.left = new TreeNode(30);
         elarbol.right.right = new TreeNode(45);
 
-        console.log(breadthSearchValueIterative(elarbol, 45));
+        console.log(sumTreeIterative(elarbol));
 
     }, []);
 
