@@ -24,24 +24,22 @@ export class TreeNode {
     };
 }
 
-class Tree {
+export class Tree {
     root: INode | null;
     count: number;
     left: INode | null;
     right: INode | null;
 
-    constructor(root: INode | null) {
+    constructor(root: INode | null = null) {
         this.root = root;
     }
 
-    insert = (data: number) => {
+    insertInOrder = (data: number) => {
         const n = new TreeNode(data, null, null);
         if (this.root === null) {
             this.root = n;
-            console.log("entra una vez aca", n);
         } else {
             let current: INode | null = this.root;
-            console.log(n);
             let parent: INode | null;
             while (true) {
                 parent = current;
@@ -62,14 +60,50 @@ class Tree {
         }
     };
 
-    // inOrder = (node: INode | null = this.root): JSX.Element => {
-    //     if (node !== null) {
-    //         console.log('entra algo aca?')
-    //         this.inOrder(node.left);
-    //         //console.log(node.show() + " ");
-    //         this.inOrder(node.right);
-    //         //return <RTreeNode data={this.root.data} left={this.root.left} right={this.root.right} />
-    //         <div>{ node.data } < /div>
-    //     }
-    // };
+    printTree = () => {
+        let result = [];
+        let queue = [this.root];
+
+        while (queue.length !== 0) {
+            let varNode = queue[0];
+            queue = queue.slice(1);
+            if (varNode) {
+                if (varNode.left) queue.push(varNode.left);
+                if (varNode.right) queue.push(varNode.right);
+                result.push(varNode);
+            }
+        }
+        return result;
+    }
+
+    removeNode(node: INode | null, data: number) {
+        if (node === null) {
+            return null;
+        }
+        if (data === node.data) {
+            // node has no children
+            if (node.left === null && node.right === null) return null;
+            //node has no children left
+            if (node.left === null) return node.right;
+            //node has no children right
+            if (node.right === null) return node.left;
+            //node has two children
+            var tempNode = getSmallest(node.right);
+            node.data = tempNode.data;
+            node.right = this.removeNode(node.right, tempNode.data);
+            return node;
+        } else if (data < node.data) {
+            node.left = this.removeNode(node.left, data);
+            return node;
+        } else {
+            node.right = this.removeNode(node.right, data);
+            return node;
+        }
+
+        function getSmallest(node: INode) {
+            if (node.left === null) {
+                return node;
+            } else return getSmallest(node.left);
+        }
+    }
 }

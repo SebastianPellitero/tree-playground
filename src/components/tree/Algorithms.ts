@@ -104,3 +104,55 @@ export const sumTreeIterative = (root: INode | null): number => {
     }
     return sumatory;
 }
+
+
+export const minValueTreeRecursive = (root: INode | null): number => {
+    if (root === null) return Infinity;
+    const leftMin: number = minValueTreeRecursive(root.left);
+    const rightMin: number = minValueTreeRecursive(root.right);
+    return Math.min(root.data, leftMin, rightMin)
+}
+
+export const minValueTreeIterative = (root: INode | null): number => {
+    // O(n)
+    if (root === null) return Infinity;
+    let minValue = Infinity;
+    let queue = [root];
+    while (queue.length !== 0) {
+        let varNode = queue.shift();
+        if (varNode!.data < minValue) minValue = varNode!.data;
+
+        if (varNode?.left) queue.push(varNode.left);
+        if (varNode?.right) queue.push(varNode.right);
+    }
+    return minValue;
+}
+
+export const maxRouteSumIterative = (root: INode | null): number => {
+    if (root === null) return Number.NEGATIVE_INFINITY;
+    let maxSum = Number.NEGATIVE_INFINITY;
+
+    let stack = new Stack(root);
+    while (!stack.isEmpty()) {
+        let varNode = stack.pop();
+        if (varNode!.data > maxSum) maxSum = varNode!.data;
+
+        if (varNode?.left) stack.push(varNode.left);
+        if (varNode?.right) stack.push(varNode.right);
+
+    }
+    return maxSum;
+}
+
+
+export const maxRouteSumRecursive = (root: INode | null): number => {
+    if (root === null) return 0;
+    const leftMax: number = maxRouteSumRecursive(root.left);
+    const rightMax: number = maxRouteSumRecursive(root.right);
+    return Math.max(root.data + leftMax, root.data + rightMax);
+
+    // if (root === null) return -Infinity;
+    // if(root.left === null && root.right === null) return root.data;
+    // const maxChildPathSum = Math.max(maxChildPathSum(root.left), maxChildPathSum(root.right));
+    // return root.data + maxChildPathSum;
+}
