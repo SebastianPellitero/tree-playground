@@ -26,16 +26,13 @@ export class TreeNode {
 
 export class Tree {
     root: INode | null;
-    count: number;
-    left: INode | null;
-    right: INode | null;
 
     constructor(root: INode | null = null) {
         this.root = root;
     }
 
     insertInOrder = (data: number) => {
-        const n = new TreeNode(data, null, null);
+        const n = new TreeNode(data);
         if (this.root === null) {
             this.root = n;
         } else {
@@ -59,6 +56,28 @@ export class Tree {
             }
         }
     };
+
+    createTreeFromArray = (treeArray: Array<number | null>) => {
+        if (!treeArray || treeArray[0] === null) return 0;
+        let _treeArray = treeArray;
+        const rootNode = new TreeNode(_treeArray.shift()!);
+        this.root = rootNode;
+        let queue = [rootNode];
+
+        while (queue.length !== 0) {
+            let treeNode = queue.shift();
+            let nodeValueLeft = _treeArray.shift();
+            if (nodeValueLeft) {
+                treeNode!.left = new TreeNode(nodeValueLeft);
+                queue.push(treeNode!.left);
+            }
+            let nodeValueRight = _treeArray.shift();
+            if (nodeValueRight) {
+                treeNode!.right = new TreeNode(nodeValueRight)
+                queue.push(treeNode!.right);
+            }
+        }
+    }
 
     printTree = () => {
         let result = [];

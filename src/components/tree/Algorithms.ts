@@ -8,7 +8,6 @@ export const depthFirstValuesRecursive = (root: INode | null): Array<INode> => {
     return [root, ...leftValues, ...rightValues];
 }
 
-
 export const depthFirstValuesIterative = (root: INode | null) => {
     let result: Array<INode> = [];
     let stack = new Stack(root);
@@ -16,14 +15,13 @@ export const depthFirstValuesIterative = (root: INode | null) => {
     while (!stack.isEmpty()) {
         let varNode = stack.pop();
         if (varNode) {
-            if (varNode.right) stack.push(varNode.right);
             if (varNode.left) stack.push(varNode.left);
+            if (varNode.right) stack.push(varNode.right);
             result.push(varNode);
         }
     }
     return (result);
 };
-
 
 export const breadthFirstValuesIterative = (root: INode | null) => {
     // O(n)
@@ -33,6 +31,7 @@ export const breadthFirstValuesIterative = (root: INode | null) => {
     while (queue.length !== 0) {
         let varNode = queue[0];
         queue = queue.slice(1);
+        //or let varNode = queue.shift();
         if (varNode) {
             if (varNode.left) queue.push(varNode.left);
             if (varNode.right) queue.push(varNode.right);
@@ -84,7 +83,6 @@ export const depthSearchValueRecursive = (root: INode | null, val: number): Bool
     return leftValues || rightValues;
 }
 
-
 export const sumTreeRecursive = (root: INode | null): number => {
     //O(n)
     if (root === null) return 0;
@@ -104,7 +102,6 @@ export const sumTreeIterative = (root: INode | null): number => {
     }
     return sumatory;
 }
-
 
 export const minValueTreeRecursive = (root: INode | null): number => {
     if (root === null) return Infinity;
@@ -144,7 +141,6 @@ export const maxRouteSumIterative = (root: INode | null): number => {
     return maxSum;
 }
 
-
 export const maxRouteSumRecursive = (root: INode | null): number => {
     if (root === null) return 0;
     const leftMax: number = maxRouteSumRecursive(root.left);
@@ -155,4 +151,28 @@ export const maxRouteSumRecursive = (root: INode | null): number => {
     // if(root.left === null && root.right === null) return root.data;
     // const maxChildPathSum = Math.max(maxChildPathSum(root.left), maxChildPathSum(root.right));
     // return root.data + maxChildPathSum;
+}
+
+export const inOrderTransversalIterative = (root: INode | null) => {
+    let result: Array<INode> = [];
+    let current = root;
+    let stack = [];
+
+    while (current || stack.length > 0) {
+        while (current) {
+            stack.push(current);
+            current = current.left;
+        }
+        current = stack.pop()!;
+        result.push(current);
+        current = current!.right
+    }
+    return (result);
+}
+
+export const inOrderTransversalRecursive = (root: INode | null) => {
+    if (root === null) return [];
+    const leftValues: INode[] = inOrderTransversalRecursive(root.left);
+    const rightValues: INode[] = inOrderTransversalRecursive(root.right);
+    return [...leftValues, root, ...rightValues];
 }
