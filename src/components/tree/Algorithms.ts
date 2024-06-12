@@ -176,3 +176,18 @@ export const inOrderTransversalRecursive = (root: INode | null) => {
     const rightValues: INode[] = inOrderTransversalRecursive(root.right);
     return [...leftValues, root, ...rightValues];
 }
+
+export const isInTreeRecursive = (root: INode | null, value: number): boolean => {
+    if (root === null) return false;
+    if (root.data === value) return true;
+    const leftValues: boolean = isInTreeRecursive(root.left, value);
+    const rightValues: boolean = isInTreeRecursive(root.right, value);
+    return leftValues || rightValues;
+}
+
+export const isTheSameTreeRecursive = (root: INode | null, root2: INode | null): boolean => {
+    if (root === null && root2 === null) return true;
+    if (root !== null && root2 !== null && root.data === root2?.data) return true && isTheSameTreeRecursive(root.left, root2.left) && isTheSameTreeRecursive(root.right, root2.right)
+    return false;
+
+}
