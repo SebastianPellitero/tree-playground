@@ -191,3 +191,17 @@ export const isTheSameTreeRecursive = (root: INode | null, root2: INode | null):
     return false;
 
 }
+
+export const isTreeSimetricRecursive = (root: INode | null) => {
+    if (root === null) return false;
+    if (!root.left && !root.right) return true;
+    if (!root.left || !root.right) return false;
+
+    const isSimetricRecursive = (root: INode | null, root2: INode | null): boolean => {
+        if (root === null && root2 === null) return true;
+        if (root !== null && root2 !== null && root.data === root2?.data) return true && isSimetricRecursive(root.left, root2.right) && isSimetricRecursive(root.right, root2.left)
+        return false;
+    }
+
+    return isSimetricRecursive(root.left, root.right);
+}

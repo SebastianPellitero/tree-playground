@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { breadthFirstValuesIterative, breadthFirstValuesRecursive, breadthSearchValueIterative, depthFirstValuesIterative, depthSearchValueRecursive, inOrderTransversalIterative, inOrderTransversalRecursive, isInTreeRecursive, isTheSameTreeRecursive, maxRouteSumIterative, maxRouteSumRecursive, minValueTreeIterative, minValueTreeRecursive, sumTreeIterative, sumTreeRecursive } from "./Algorithms";
+import { breadthFirstValuesIterative, breadthFirstValuesRecursive, breadthSearchValueIterative, depthFirstValuesIterative, depthSearchValueRecursive, inOrderTransversalIterative, inOrderTransversalRecursive, isInTreeRecursive, isTheSameTreeRecursive, isTreeSimetricRecursive, maxRouteSumIterative, maxRouteSumRecursive, minValueTreeIterative, minValueTreeRecursive, sumTreeIterative, sumTreeRecursive } from "./Algorithms";
 import { Tree, TreeNode } from "./TreeNode";
 
 export const TreeNodeComponent: any = () => {
@@ -12,11 +12,11 @@ export const TreeNodeComponent: any = () => {
         const elArbol2 = new Tree();
         elArbol2.createTreeFromArray([1, 2, null]);
         const elArbol3 = new Tree();
-        elArbol3.createTreeFromArray([1, 2, 3]);
+        elArbol3.createTreeFromArray([2, 1, 1, 5, 1, 1, 5]);
         const elArbol4 = new Tree();
         elArbol4.createTreeFromArray([3, 2, 1]);
 
-        console.log(isTheSameTreeRecursive(elArbol.root, elArbol4.root));
+        console.log(isTreeSimetricRecursive(elArbol.root));
 
     }, []);
 
