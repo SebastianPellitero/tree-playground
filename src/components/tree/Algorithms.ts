@@ -75,6 +75,29 @@ export const breadthSearchValueIterative = (root: INode | null, val: number): Bo
     return false;
 }
 
+export const optimalSearchBreadthFirst = (root: INode | null, val: number): Boolean => {
+    if (root === null) return false;
+    let queue = [root];
+    while (queue.length !== 0) {
+        let varNode = queue.shift();
+        if (varNode?.data === val) return true
+        if (varNode?.data > val) {
+            if (varNode?.left) queue.push(varNode.left);
+        } else {
+            if (varNode?.right) queue.push(varNode.right);
+        }
+    }
+    return false;
+}
+
+export const optimalSearchValueRecursive = (root: INode | null, val: number): boolean => {
+    if (root === null) return false;
+    if (root.data === val) return true;
+
+    if (root.data > val) return optimalSearchValueRecursive(root.left, val);
+    else return optimalSearchValueRecursive(root.right, val);
+}
+
 export const depthSearchValueRecursive = (root: INode | null, val: number): Boolean => {
     if (root === null) return false;
     if (root.data === val) return true;
@@ -204,4 +227,34 @@ export const isTreeSimetricRecursive = (root: INode | null) => {
     }
 
     return isSimetricRecursive(root.left, root.right);
+}
+
+export const isSortedTreeValidationRecursive = (root: INode | null) => {
+
+    const optimalSearchValueRecursive = (root: INode | null, val: number): boolean => {
+        if (root === null) return false;
+        if (root.data === val) return true;
+
+        if (root.data > val) return optimalSearchValueRecursive(root.left, val);
+        else return optimalSearchValueRecursive(root.right, val);
+    }
+
+    let queueTree: Array<number> = [];
+    let result = true;
+    let queue = [root];
+
+    while (queue.length !== 0 && result) {
+        let varNode = queue.shift();
+        if (varNode) {
+            if (varNode.left) queue.push(varNode.left);
+            if (varNode.right) queue.push(varNode.right);
+            if (queueTree.includes(varNode.data)) result = false
+            else {
+                queueTree.push(varNode.data);
+                result = optimalSearchValueRecursive(root, varNode.data);
+            }
+        }
+    }
+    return result;
+
 }

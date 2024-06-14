@@ -87,10 +87,10 @@ export class Tree {
             let varNode = queue[0];
             queue = queue.slice(1);
             if (varNode) {
-                if (varNode.left) queue.push(varNode.left);
-                if (varNode.right) queue.push(varNode.right);
-                result.push(varNode);
+                queue.push(varNode.left);
+                queue.push(varNode.right);
             }
+            result.push(varNode);
         }
         return result;
     }
