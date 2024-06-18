@@ -258,3 +258,8 @@ export const isSortedTreeValidationRecursive = (root: INode | null) => {
     return result;
 
 }
+
+export const getMaximumDepth = (root: INode | null): number => {
+    if (root === null) return 0;
+    return Math.max(getMaximumDepth(root.left), getMaximumDepth(root.right)) + 1;
+}
