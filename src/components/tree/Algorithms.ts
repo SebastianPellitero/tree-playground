@@ -263,3 +263,19 @@ export const getMaximumDepth = (root: INode | null): number => {
     if (root === null) return 0;
     return Math.max(getMaximumDepth(root.left), getMaximumDepth(root.right)) + 1;
 }
+
+export const amountOfUniqueTrees = (qnodes: number) => {
+    //not working bad aproach
+    let subtotal = (subQnodes: number): number => {
+        if (subQnodes === 0) return 1;
+        if (subQnodes === 1) return 1;
+        if (subQnodes === 2) return 2;
+        if (subQnodes === 3) return 5;
+        let value = 0;
+        for (let i = 1; i <= Math.ceil(subQnodes / 2); i++) {
+            value += 2 * subtotal(subQnodes - i)
+        }
+        return value;
+    }
+    return subtotal(qnodes);
+}

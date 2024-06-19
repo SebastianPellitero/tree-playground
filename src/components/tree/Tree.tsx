@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { breadthFirstValuesIterative, breadthFirstValuesRecursive, breadthSearchValueIterative, depthFirstValuesIterative, depthSearchValueRecursive, getMaximumDepth, inOrderTransversalIterative, inOrderTransversalRecursive, isInTreeRecursive, isSortedTreeValidationRecursive, isTheSameTreeRecursive, isTreeSimetricRecursive, maxRouteSumIterative, maxRouteSumRecursive, minValueTreeIterative, minValueTreeRecursive, optimalSearchBreadthFirst, optimalSearchValueRecursive, sumTreeIterative, sumTreeRecursive } from "./Algorithms";
+import { amountOfUniqueTrees, breadthFirstValuesIterative, breadthFirstValuesRecursive, breadthSearchValueIterative, depthFirstValuesIterative, depthSearchValueRecursive, getMaximumDepth, inOrderTransversalIterative, inOrderTransversalRecursive, isInTreeRecursive, isSortedTreeValidationRecursive, isTheSameTreeRecursive, isTreeSimetricRecursive, maxRouteSumIterative, maxRouteSumRecursive, minValueTreeIterative, minValueTreeRecursive, optimalSearchBreadthFirst, optimalSearchValueRecursive, sumTreeIterative, sumTreeRecursive } from "./Algorithms";
 import { Tree, TreeNode } from "./TreeNode";
 
 export const TreeNodeComponent: any = () => {
@@ -29,7 +29,9 @@ export const TreeNodeComponent: any = () => {
         ordererTree.insertInOrder(70);
 
         //console.log(elArbol3.printTree());
-        console.log(getMaximumDepth(elArbol.root));
+        //console.log(getMaximumDepth(elArbol.root));
+
+        console.log(amountOfUniqueTrees(5));
 
     }, []);
 
