@@ -1,4 +1,4 @@
-import { INode } from "./TreeNode";
+import { INode } from "./treeNode";
 
 export class Stack {
     array: Array<INode | null> = [];

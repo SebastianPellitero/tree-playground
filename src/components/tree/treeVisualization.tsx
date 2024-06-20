@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 
-import { amountOfUniqueTrees, breadthFirstValuesIterative, breadthFirstValuesRecursive, breadthSearchValueIterative, depthFirstValuesIterative, depthSearchValueRecursive, getMaximumDepth, inOrderTransversalIterative, inOrderTransversalRecursive, isInTreeRecursive, isSortedTreeValidationRecursive, isTheSameTreeRecursive, isTreeSimetricRecursive, maxRouteSumIterative, maxRouteSumRecursive, minValueTreeIterative, minValueTreeRecursive, optimalSearchBreadthFirst, optimalSearchValueRecursive, sumTreeIterative, sumTreeRecursive } from "./Algorithms";
-import { Tree, TreeNode } from "./TreeNode";
+import * as BST from "./algorithms";
+import { Tree, TreeNode } from "./treeNode";
 
 export const TreeNodeComponent: any = () => {
 
-    useEffect(() => {
+    const { amountOfUniqueTrees } = BST;
 
+    useEffect(() => {
         const elArbol = new Tree();
         elArbol.createTreeFromArray([1, 2]);
         const elArbol2 = new Tree();

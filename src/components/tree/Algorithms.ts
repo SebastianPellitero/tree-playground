@@ -1,5 +1,5 @@
-import { Stack } from "./Stack";
-import { INode } from "./TreeNode";
+import { Stack } from "./treeStack";
+import { INode } from "./treeNode";
 
 export const depthFirstValuesRecursive = (root: INode | null): Array<INode> => {
     if (root === null) return [];

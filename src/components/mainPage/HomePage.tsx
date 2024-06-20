@@ -1,23 +1,50 @@
 import { useState } from 'react';
-import { TreeNodeComponent } from '../tree/Tree';
+import styled from 'styled-components';
+import { pageColors } from '../utils/constants';
+
+const MainSection = styled.section`
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 90vw;
+
+    h1 {
+        color: ${pageColors.darkText};
+    }
+
+    `
+
+const CanvasWrapper = styled.div`
+    background-color: white;
+    border: 5px solid blue;
+`
 
 export default function HomePage() {
-    const [count, setCount] = useState(0);
+
     return (
         <>
-            <h1>Vite + React</h1>
-            <div className='card'>
-                <button onClick={() => setCount(count => count + 1)}>
-                    count is {count}
-                </button>
-                <p>
-                    Edit <code>src/App.tsx</code> and save to test HMR
-                </p>
-            </div>
-            <p className='read-the-docs'>
-                Click on the Vite and React logos to learn more
-            </p>
-            <TreeNodeComponent />
+            <MainSection>
+                <h1>Select the algorithm that you want to see</h1>
+                <ul>
+                    <li>
+                        <pre>
+                            <code>Algoritmo 1   </code>
+                        </pre>
+                    </li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+
+                <p>El dibujito:</p>
+                <CanvasWrapper>
+                    <canvas />
+                </CanvasWrapper>
+            </MainSection>
         </>
     );
 }
