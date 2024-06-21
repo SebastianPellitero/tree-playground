@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { pageColors } from '../utils/constants';
+import { twoSum } from '../arrays/algorithms';
 
 const MainSection = styled.section`
     color: white;
@@ -19,7 +20,6 @@ const CanvasWrapper = styled.div`
     background-color: white;
     border: 5px solid blue;
 `
-
 export default function HomePage() {
 
     return (
