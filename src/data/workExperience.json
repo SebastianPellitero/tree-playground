@@ -1,0 +1,30 @@
+{
+    "title": "Experience",
+    "items" : [
+        {
+            "title": "Globant",
+            "subTitle": "Agency company",
+            "Technology stack": ["JavaScript","jQuery","Scss","ASP.NETrazor","React.js","Redux.js"," Scrum"]
+        },
+        {
+            "title": "GlobalLogic",
+            "subTitle": "Agency company",
+            "Technology stack": ["TypeScript","Angular4","Kanban,JavaScript","React.js","Material UI"]
+        },
+        {
+            "title": "SparkDigital",
+            "subTitle": "Agency company",
+            "Technology stack": [" React.js","Canvas","ChromeVox","NVDA","React Testing Library"]
+        },
+        {
+            "title": "ThingsCubed",
+            "subTitle": "Startup",
+            "Technology stack": [".NET Framework "," JavaScript "," Material-UI, React"]
+        },
+        {
+            "title": "Foleon",
+            "subTitle": "ScaleUp",
+            "Technology stack": ["React.js","TypeScript","Cypress","Playwright"]
+       }
+    ]
+}
