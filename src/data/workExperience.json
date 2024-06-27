@@ -4,6 +4,7 @@
         {
             "title": "Globant",
             "subTitle": "Agency company",
+            
             "Technology stack": ["JavaScript","jQuery","Scss","ASP.NETrazor","React.js","Redux.js"," Scrum"]
         },
         {
@@ -14,16 +15,19 @@
         {
             "title": "SparkDigital",
             "subTitle": "Agency company",
+            "recap" : "Working as a frontend developer on the construction of a laboratory simulator using react, node and canvas. Working side by side with the client we define the art, quemistry logic and behaivor of materials, containers and instruments and their interaction with each other. As part of the scope we integrate a full accessibility approach available for screen readers and keyboard navigation.",
             "Technology stack": [" React.js","Canvas","ChromeVox","NVDA","React Testing Library"]
         },
         {
             "title": "ThingsCubed",
             "subTitle": "Startup",
+            "recap" : "Working in a small team of frontends, we were in charge of building an entirely new website migrating old concepts to newer technologies. As well as designing, analyzing and restructuring the new components and their impact.",
             "Technology stack": [".NET Framework "," JavaScript "," Material-UI, React"]
         },
         {
             "title": "Foleon",
             "subTitle": "ScaleUp",
+            "recap" : "Working as a Frontend developer on the creation of new features and maintenance of a content creator platform using React with TypeScript. I also contributed in the architectural change that affected the entire product.",
             "Technology stack": ["React.js","TypeScript","Cypress","Playwright"]
        }
     ]
